@@ -18,7 +18,7 @@
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/starter-template/">
     
-    <link href="{% static 'blog/main.css' %}" type="text/css" rel="stylesheet">
+    <link href="{% static 'blog/about.css' %}" type="text/css" rel="stylesheet">
 
   
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
@@ -40,14 +40,14 @@
           </button>
           
             <ul class="navbar-nav ml-left">
-                <li class="nav-item active pl-1">
+                <li class="nav-item pl-1">
                   <a class="nav-link" href="{% url 'blog-home' %}"><i class="fa fa-home fa-fw mr-1"></i>Anasayfa</a>
                 </li>
                 <li class="nav-item  pl-1">
                   <a class="nav-link" href="#"><i class="fa fa-th-list fa-fw mr-1"></i>Blog</a>
                 </li>
-                <li class="nav-item pl-1">
-                  <a class="nav-link" href="{% url 'blog-about' %}"><i class="fa fa-info-circle fa-fw mr-1"></i>Hakkımızda</a>
+                <li class="nav-item active pl-1">
+                  <a class="nav-link" href="#"><i class="fa fa-info-circle fa-fw mr-1"></i>Hakkımızda</a>
                 </li>
             </ul>
 
@@ -63,63 +63,43 @@
                 <a class="nav-link" href="#"><i class="fa fa-sign-in fa-fw mr-1"></i>Oturum Aç</a>
               </li>
             </ul>
-          
-        </div>
+
       </nav>
+      </div>
       <!--# Navbar #-->
     
 
+    <main class="row">
 
-    <main class="container">
-
-      <div class="starter-template text-center py-5 px-3">
-        <h1>Burası Anasayfa</h1>
-        <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
+      <div class="column">
+          <div class="card-profile1">
+            <div class="image1">
+              <img src="{% static 'blog/images/pp1.png' %}" class="responsive" alt="Profile Picture2">
+            </div>
+            <h1>Back-end Developer</h1>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;My ambition is to reach the very top of my profession and to work with other leading developers in this field. On a personal level I am able to both give and take feedback. Furthermore I am committed to constantly improving myself by learning new technologies and frameworks.</p>
+          </div>
       </div>
-      <div class="row row-cols-1 row-cols-md-4 g-4">
-        <div class="col">
-          <div class="card">
-            <img class="card-img-top" src="{% static 'blog/images/travelling.jpg' %}" alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+      <div class="column">
+          <div class="card-profile2">
+            <div class="image2">
+              <img src="{% static 'blog/images/pp2.jpg' %}" class="responsive" alt="Profile Picture2">
             </div>
+            <h1>Front-end Developer</h1>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Building state-of-the-art, easy to use, user-friendly websites and applications is truly a passion of mine and I am confident I would be an excellent.</p>
           </div>
-        </div>
-        <div class="col">
-          <div class="card">
-            <img class="card-img-top" src="{% static 'blog/images/travelling.jpg' %}" alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card">
-            <img class="card-img-top" src="{% static 'blog/images/travelling.jpg' %}" alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card">
-            <img class="card-img-top" src="{% static 'blog/images/travelling.jpg' %}" alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            </div>
-          </div>
-        </div>
       </div>
+      
+      
+    
 
-    </main><!-- /.container -->
-  </header>
+    </main>
+    </header>
     
   <!--- Footer --->
+  <div class="row">
     <footer>
+      
       <div class="jumbotron jumbotron-fluid bg-secondary p-4 mt-5 mb-0">
         <div class="container">
           <div class="row">
@@ -164,7 +144,9 @@
           </div>
         </div>
       </div>
+      
     </footer>
+    </div>
     <!--# Footer #-->
 
 

@@ -1,0 +1,110 @@
+
+.navbar { background-color: #000000; }
+.navbar .navbar-nav .nav-link { color: #fff; }
+.navbar .navbar-nav .nav-link:hover { color: #fbc531; }
+.navbar .navbar-nav .active > .nav-link { color: #fbc531; }
+
+footer a.text-light:hover { color: #fed136!important; text-decoration: none; }
+footer .cizgi { border-right: 1px solid #535e67; }
+@media (max-width: 992px) { footer .cizgi { border-right:white; } }
+
+/* Create three equal columns that floats next to each other */
+.column {
+  margin-top: 100px;
+  text-align: center;
+  padding-bottom: 500px;
+  float: middle;
+  width: 50%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other on smaller screens (600px wide or less) */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+  }
+}
+
+.row .column .image1 .responsive {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  margin: 20px auto;
+  display: block;
+  -moz-box-shadow: 0px 6px 5px #ccc;
+  -webkit-box-shadow: 0px 6px 5px #ccc;
+  box-shadow: 0px 12px 13px #646464;
+}
+
+.row .column .image2 .responsive {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  margin: 20px auto;
+  display: block;
+  -moz-box-shadow: 0px 6px 5px #ccc;
+  -webkit-box-shadow: 0px 6px 5px #ccc;
+  box-shadow: 0px 12px 13px #646464;
+}
+
+h1 {
+	 margin-top: 0;
+	 width: 100%;
+	 text-align: center;
+	 font-size:30px;
+     height:50px;
+     top: 0px
+}
+
+p  {
+	  font-size:14px;
+    height:50px;
+    text-align: left;
+    margin-right: 25px;
+    margin-left: 25px;
+    margin-bottom: 25
+}
+
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInFromRight {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.row .column .card-profile1 {
+  width: 50%;
+  height: 120%;
+  background-color: #fff;
+  box-shadow: 5px 10px 8px #888888;
+  display: inline-block;
+  animation: 1s ease-out 0s 1 slideInFromLeft;
+}
+.row .column .card-profile2 {
+  width: 50%;
+  height: 120%;
+  background-color: #fff;
+  box-shadow: 5px 10px 8px #888888;
+  display: inline-block;
+  animation: 1s ease-out 0s 1 slideInFromRight;
+}
+
+
+
