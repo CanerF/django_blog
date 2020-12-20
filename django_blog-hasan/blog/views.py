@@ -28,6 +28,18 @@ posts = [
     }
 ]
 
+def post_create(request):
+    form = BlogForm()
+    if request.method == "POST":
+        form = BlogForm(data=request.POST, files=request.FILES)
+        if form.is_valid():
+            blog = form.save(commit=False)
+            blog.save()
+            msg = "Tebrikler <strong> %s </strong> isimli gönderiniz başarıyla oluşturuldu." % (blog.title)
+            messages.success(request, msg, extra_tags='success')
+            # everse('post-detail', kwargs={'pk': blog.pk})
+            return HttpResponseRedirect(blog.get_absolute_url())
+    return render(request, 'blog/post_create.html', context={'form': form})
 
 def home(request):
     context = {
@@ -39,16 +51,3 @@ def home(request):
 def about(request):
     return render(request, 'blog/about.html', {'title' : 'About'})
 
-def post_create(request):
-   
-    form = BlogForm()
-    if request.method == "POST":
-        form = BlogForm(data=request.POST, files=request.FILES)
-        if form.is_valid():
-            blog = form.save(commit=False)
-            blog.save()
-            msg = "Tebrikler <strong> %s </strong> isimli gönderiniz başarıyla oluşturuldu." % (blog.title)
-            messages.success(request, msg, extra_tags='success')
-            # reverse('post-detail', kwargs={'pk': blog.pk})
-            return HttpResponseRedirect(blog.get_absolute_url())
-    return render(request, 'blog/post_create.html', context={'form': form})

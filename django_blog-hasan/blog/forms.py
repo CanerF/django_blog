@@ -12,7 +12,7 @@ class BlogForm(forms.ModelForm):
         super(BlogForm, self).__init__(*args, **kwargs)
         for field in self.fields:
             self.fields[field].widget.attrs = {'class': 'form-control'}
-        self.fields['icerik'].widget.attrs['rows'] = 10
+        self.fields['content'].widget.attrs['rows'] = 10
 
     def clean_content(self):
         content = self.cleaned_data.get('content')
