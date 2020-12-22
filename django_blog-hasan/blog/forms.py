@@ -4,6 +4,7 @@ from ckeditor.widgets import CKEditorWidget
 
 
 class BlogForm(forms.ModelForm):
+
     class Meta:
         model = Post
         fields = ['title', 'content', 'author', 'image']
@@ -18,6 +19,6 @@ class BlogForm(forms.ModelForm):
         content = self.cleaned_data.get('content')
         if len(content) < 250:
             content = len(content)
-            msg = 'Lütfen en az 250 karakter giriniz. Girilen karakter sayısı (%s)' % (uzunluk)
+            msg = 'Lütfen en az 250 karakter giriniz. Girilen karakter sayısı (%s)' % (content)
             raise forms.ValidationError(msg)
         return content

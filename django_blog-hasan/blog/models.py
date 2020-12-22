@@ -5,6 +5,8 @@ from django.template.defaultfilters import slugify, safe
 from django.contrib.contenttypes.fields import GenericForeignKey
 from django.contrib.contenttypes.models import ContentType
 from django.contrib.auth.models import User
+from django.utils import timezone
+
 from uuid import uuid4
 import os
 from ckeditor.fields import RichTextField
@@ -21,11 +23,14 @@ def upload_to(instance, filename):
 class Post(models.Model):
     title =models.CharField(max_length=100, blank=False, null=True, verbose_name='Hikayenin Başlığı',
                              help_text='')
-    content =RichTextField(null=True, blank=False, max_length=5000, verbose_name='İçerik')
+    content =RichTextField(null=True, blank=False, max_length=20000, verbose_name='İçerik')
     slug = models.SlugField(null=True, unique=True, editable=False)
 
-    date_posted =models.DateField(auto_now_add=True, auto_now=False)
-    author = models.ForeignKey(User,on_delete=models.CASCADE, default=1, null=True, verbose_name='Yazar', related_name='blog')
+    date_posted = models.DateField(default=timezone.now)
+
+    author = models.CharField(max_length=100,blank=False,null=True,verbose_name="Yazar")
+    unique_id = models.CharField(max_length=100, editable=False, null=True)
+
     image = models.ImageField(default='default/default-photo.jpg', upload_to=upload_to, blank=True,
                               verbose_name='Resim',
                               null=True,
@@ -35,12 +40,33 @@ class Post(models.Model):
         ordering = ['-id']
 
     def __str__(self):
-        return "%s %s" % (self.title, self.user)
+        return "%s %s" % (self.title, self.author)
 
     def get_absolute_url(self):
         return reverse('post_create')
 
+    def get_unique_slug(self):
+        sayi = 0
+        slug = slugify(unidecode(self.title))
+        new_slug = slug
+        while Post.objects.filter(slug=new_slug).exists():
+            sayi += 1
+            new_slug = "%s-%s" % (slug, sayi)
 
+        slug = new_slug
+        return slug
+
+    def save(self, *args, **kwargs):
+        if self.id is None:
+            new_unique_id = str(uuid4())
+            self.unique_id = new_unique_id
+            self.slug = self.get_unique_slug()
+        else:
+            blog = Post.objects.get(slug=self.slug)
+            if blog.title != self.title:
+                self.slug = self.get_unique_slug()
+
+        super(Post, self).save(*args, **kwargs)
 
 
 
