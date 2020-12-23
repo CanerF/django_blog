@@ -23,7 +23,17 @@ def upload_to(instance, filename):
 class Post(models.Model):
     title =models.CharField(max_length=100, blank=False, null=True, verbose_name='Hikayenin Başlığı',
                              help_text='')
-    content =RichTextField(null=True, blank=False, max_length=20000, verbose_name='İçerik')
+    content_cost =RichTextField(null=True, blank=False, max_length=20000, verbose_name='Harcama')
+    content_food= RichTextField(null=True, blank=False, max_length=20000, verbose_name='Yemekler')
+    content_fun= RichTextField(null=True, blank=False, max_length=20000, verbose_name='Eğlence')
+    content_transportation= RichTextField(null=True, blank=False, max_length=20000, verbose_name='Ulaşım')
+    content_visit= RichTextField(null=True, blank=False, max_length=20000, verbose_name='Gezilecek Yerler')
+    content_cities= RichTextField(null=True, blank=False, max_length=20000, verbose_name='Gezdiğim Diğer Şehirler')
+    content_education= RichTextField(null=True, blank=False, max_length=20000, verbose_name='Eğitim ve Okul Hayatı')
+    content_hint= RichTextField(null=True, blank=False, max_length=20000, verbose_name='İpuçları')
+
+
+
     slug = models.SlugField(null=True, unique=True, editable=False)
 
     date_posted = models.DateField(default=timezone.now)
@@ -31,8 +41,8 @@ class Post(models.Model):
     author = models.CharField(max_length=100,blank=False,null=True,verbose_name="Yazar")
     unique_id = models.CharField(max_length=100, editable=False, null=True)
 
-    image = models.ImageField(default='default/default-photo.jpg', upload_to=upload_to, blank=True,
-                              verbose_name='Resim',
+    image = models.ImageField( upload_to=upload_to, blank=False,
+                              verbose_name='Fotoğraflar',
                               null=True,
                               help_text='Fotoğraflarınızı Yükleyiniz')
     class Meta:
@@ -67,8 +77,6 @@ class Post(models.Model):
                 self.slug = self.get_unique_slug()
 
         super(Post, self).save(*args, **kwargs)
-
-
 
 
     

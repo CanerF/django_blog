@@ -132,7 +132,9 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 CKEDITOR_CONFIGS = {
     'default': {
-        'width': "550px",
+        'width': "430px",
+        'height': "200px",
+
         'toolbar': 'Custom',
         'toolbar_Custom': [
             ['Bold', 'Italic', 'Underline'],
@@ -151,7 +153,7 @@ CKEDITOR_CONFIGS = {
             ['Link', 'Unlink'],
             ['RemoveFormat', 'Source']
         ],
-        'height': 300,
+        'height': "100px",
         'width': "100%",
     },
 }
