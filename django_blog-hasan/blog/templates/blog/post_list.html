@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content%}
+   <div class="row">
+    <div class="col-lg-12">
+
+        <div class="col-lg-8 col-lg-offset-2">
+           
+            <div class="row">
+                <div class="col-lg-12">
+                    {% for post in posts %}
+                    <h2> <a href="#"><span>Yazar:{{post.author}}- Hikaye:{{post.title}} </span></a> </h2>
+                    
+                   {% endfor %}
+                 
+                </div>
+            </div>
+           
+
+         
+        </div>
+    </div>
+{% endblock%}
+
+

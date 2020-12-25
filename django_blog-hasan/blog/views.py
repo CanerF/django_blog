@@ -12,6 +12,7 @@ from django.http import JsonResponse
 
 from django.template.loader import render_to_string
 from .forms import BlogForm
+from .models import Post
 
 posts = [
     {
@@ -42,10 +43,17 @@ def post_create(request):
     return render(request, 'blog/post_create.html', context={'form': form})
 
 def home(request):
-    context = {
-        'posts': posts
-    }
-    return render(request, 'blog/home.html', context)
+    posts=Post.objects.all()
+    print(posts)
+    return render(request, 'blog/home.html', context={'posts':posts})
+
+def post_list(request,slug):
+    if form.is_valid():
+        posts = Post.objects.all()
+        print(posts)
+        return render(request, 'blog/post_list.html', context={'posts': posts,'slug':slug})
+    return HttpResponseRedirect(reverse('post_list'))
+
 
 
 def about(request):

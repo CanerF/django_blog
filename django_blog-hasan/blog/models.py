@@ -53,7 +53,7 @@ class Post(models.Model):
         return "%s %s" % (self.title, self.author)
 
     def get_absolute_url(self):
-        return reverse('post_create')
+        return reverse('post_create', kwargs={'slug': self.slug})
 
     def get_unique_slug(self):
         sayi = 0
@@ -72,10 +72,10 @@ class Post(models.Model):
             self.unique_id = new_unique_id
             self.slug = self.get_unique_slug()
         else:
-            blog = Post.objects.get(slug=self.slug)
-            if blog.title != self.title:
+            post = Post.objects.get(slug=self.slug)
+            if post.title != self.title:
                 self.slug = self.get_unique_slug()
-
+        print(self.title)
         super(Post, self).save(*args, **kwargs)
 
 
