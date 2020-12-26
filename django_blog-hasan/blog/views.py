@@ -47,12 +47,10 @@ def home(request):
     print(posts)
     return render(request, 'blog/home.html', context={'posts':posts})
 
-def post_list(request,slug):
-    if form.is_valid():
-        posts = Post.objects.all()
-        print(posts)
-        return render(request, 'blog/post_list.html', context={'posts': posts,'slug':slug})
-    return HttpResponseRedirect(reverse('post_list'))
+def post_list(request):
+    posts = Post.objects.all()
+    print(posts)
+    return render(request, 'blog/post_list.html', context={'posts': posts})
 
 
 
