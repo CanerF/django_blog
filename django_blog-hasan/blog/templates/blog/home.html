@@ -12,44 +12,23 @@
         <p  style="font-family: cursive;font-size:18px" > Bizimle Erasmus veya diğer yurtdışı deneyimlerini paylaşabilirsin.</p>
       </div>
       <br>
+
+      {% for post in posts %}
       <div class="row row-cols-1 row-cols-md-4 g-4">
         <div class="col">
           <div class="card">
             <img class="card-img-top" src="{% static 'blog/images/travelling.jpg' %}" alt="Card image cap">
             <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              <h4 style="text-align: center;">{{post.title |safe}}</h4>
+              <h5 style="text-align: center;" class="card-title">{{post.author|safe}}</h5>
+
+              <p class="card-text">{{post.content_visit}}</p>
             </div>
           </div>
         </div>
-        <div class="col">
-          <div class="card">
-            <img class="card-img-top" src="{% static 'blog/images/travelling.jpg' %}" alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card">
-            <img class="card-img-top" src="{% static 'blog/images/travelling.jpg' %}" alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card">
-            <img class="card-img-top" src="{% static 'blog/images/travelling.jpg' %}" alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            </div>
-          </div>
-        </div>
+
       </div>
+      {% endfor %}
 
     </main><!-- /.container -->
   </header>
