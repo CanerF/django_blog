@@ -37,23 +37,31 @@ class Post(models.Model):
     slug = models.SlugField(null=True, unique=True, editable=False)
 
     date_posted = models.DateField(default=timezone.now)
-
+    image = models.ImageField( default='default/default-photo.jpg', upload_to=upload_to, blank=True,
+                              verbose_name='Fotoğraflar',
+                              null=True,
+                              help_text='Kapak Fotoğrafı Yükleyiniz')
     author = models.CharField(max_length=100,blank=False,null=True,verbose_name="Yazar")
     unique_id = models.CharField(max_length=100, editable=False, null=True)
 
-    image = models.ImageField( upload_to=upload_to, blank=False,
-                              verbose_name='Fotoğraflar',
-                              null=True,
-                              help_text='Fotoğraflarınızı Yükleyiniz')
+   
     class Meta:
         verbose_name_plural = 'Gönderiler'
         ordering = ['-id']
+
+    def get_image(self):
+        if self.image.url:
+            return self.image.url
+        else:
+            return '/media/default/default-photo.jpg'
 
     def __str__(self):
         return "%s %s" % (self.title, self.author)
 
     def get_absolute_url(self):
-        return reverse('post_create', kwargs={'slug': self.slug})
+        return reverse('post_list', kwargs={'slug': self.slug})
+
+    
 
     def get_unique_slug(self):
         sayi = 0

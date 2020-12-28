@@ -2,6 +2,9 @@ from django.urls import path
 from . import views
 from django.conf.urls import url
 from .views import post_create,post_list
+from django.conf.urls.static import static
+from django.conf import settings
+
 
 urlpatterns = [
     url(r'^post_list/$', post_list, name='post_list'),
