@@ -2,10 +2,12 @@
 {% extends "base.html" %}
 {% load static %}
 
+
 {% block content %}
 
     <main class="container">
-    
+
+   
       <br>
       <div style="border-radius: 180px ;background-color: rgba(255, 252, 252, 0.5);" class="starter-template text-center py-5 px-3" >
         <h1 class="page-header" style="font-family: cursive;" >HİKAYENİ PAYLAŞ BİZE KATIL!</h1>
@@ -14,15 +16,20 @@
       <br>
 
       {% for post in posts %}
+
       <div class="row row-cols-1 row-cols-md-4 g-4">
         <div class="col">
           <div class="card">
-            <img class="card-img-top" src="{% static 'blog/images/travelling.jpg' %}" alt="Card image cap">
+             {% if post.get_image %}
+            <img class="card-img-top" src='{{ post.get_image }}' alt="{{ post.title }}">
+
+             {% endif %}
             <div class="card-body">
               <h4 style="text-align: center;">{{post.title |safe}}</h4>
+
               <h5 style="text-align: center;" class="card-title">{{post.author|safe}}</h5>
 
-              <p class="card-text">{{post.content_visit}}</p>
+              <p class="card-text">{{post.content_visit |safe}}</p>
             </div>
           </div>
         </div>
@@ -33,5 +40,4 @@
     </main><!-- /.container -->
   </header>
  
-
 {% endblock %}
