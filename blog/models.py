@@ -48,9 +48,11 @@ class Post(models.Model):
     class Meta:
         verbose_name_plural = 'Gönderiler'
         ordering = ['-id']
-
+  
+  
     def get_image(self):
-        if self.image.url:
+        if self.image:
+            print(self.image.url)
             return self.image.url
         else:
             return '/media/default/default-photo.jpg'
@@ -59,7 +61,7 @@ class Post(models.Model):
         return "%s %s" % (self.title, self.author)
 
     def get_absolute_url(self):
-        return reverse('post_list', kwargs={'slug': self.slug})
+        return reverse('post_list') #,kwargs={'slug': self.slug})
 
     
 

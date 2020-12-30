@@ -49,7 +49,7 @@ def home(request):
 
 def post_list(request):
     posts = Post.objects.all()
-    print(posts)
+   # print(posts.image.url)
     return render(request, 'blog/post_list.html', context={'posts': posts})
 
 
