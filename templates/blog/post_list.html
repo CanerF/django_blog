@@ -11,7 +11,7 @@
                 <div class="col-lg-12">
                     {% for post in posts %}
                     <h4></h2> <a style="color: black;" href="#"><span>Yazar:{{post.author}}- Hikaye:{{post.title}} </span></a>
-                        <img src="{{ post.get_image }}" alt="{{post.title}}">
+                       <center> <img src="{{ post.get_image }}" style="width: 250;height:210px" alt="{{post.title}}"></center> 
                     </h4>
                      
                    {% endfor %}
