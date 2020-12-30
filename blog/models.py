@@ -21,8 +21,12 @@ def upload_to(instance, filename):
     return os.path.join('blog', unique_id, new_name)
 
 class Post(models.Model):
-    title =models.CharField(max_length=100, blank=False, null=True, verbose_name='Hikayenin Başlığı',
+    title =models.CharField(max_length=50, blank=False, null=True, verbose_name='Hikayenin Başlığı',
                              help_text='')
+    content_country =models.CharField(null=True, blank=False, max_length=100, verbose_name='Gidilen Ülke')
+    content_city =models.CharField(null=True, blank=False, max_length=100, verbose_name='Gidilen Şehir')
+
+               
     content_cost =RichTextField(null=True, blank=False, max_length=20000, verbose_name='Harcama')
     content_food= RichTextField(null=True, blank=False, max_length=20000, verbose_name='Yemekler')
     content_fun= RichTextField(null=True, blank=False, max_length=20000, verbose_name='Eğlence')
@@ -61,7 +65,7 @@ class Post(models.Model):
         return "%s %s" % (self.title, self.author)
 
     def get_absolute_url(self):
-        return reverse('post_list') #,kwargs={'slug': self.slug})
+        return reverse('blog-home') #,kwargs={'slug': self.slug})
 
     
 
