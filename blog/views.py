@@ -47,11 +47,9 @@ def home(request):
     print(posts)
     return render(request, 'blog/home.html', context={'posts':posts})
 
-def post_list(request):
-    posts = Post.objects.all()
-   # print(posts.image.url)
+def post_list(request,slug):
+    posts = get_object_or_404(Post, slug=slug)
     return render(request, 'blog/post_list.html', context={'posts': posts})
-
 
 
 def about(request):
