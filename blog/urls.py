@@ -7,7 +7,7 @@ from django.conf import settings
 
 
 urlpatterns = [
-    url(r'^post_list/$', post_list, name='post_list'),
+    url(r'^post_list/(?P<slug>[-\w]+)/$', post_list, name='post_list'),
 
     url(r'^post_create/$', post_create ,name='post_create'),
        
