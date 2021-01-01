@@ -23,8 +23,8 @@ def upload_to(instance, filename):
 class Post(models.Model):
     title =models.CharField(max_length=50, blank=False, null=True, verbose_name='Hikayenin Başlığı',
                              help_text='')
-    content_country =models.CharField(null=True, blank=False, max_length=100, verbose_name='Gidilen Ülke')
-    content_city =models.CharField(null=True, blank=False, max_length=100, verbose_name='Gidilen Şehir')
+    content_country =models.CharField(null=True, blank=False, max_length=100, verbose_name='Ülke')
+    content_city =models.CharField(null=True, blank=False, max_length=100, verbose_name='Şehir')
 
                
     content_cost =RichTextField(null=True, blank=False, max_length=20000, verbose_name='Harcama')

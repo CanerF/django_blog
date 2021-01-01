@@ -42,7 +42,7 @@
 
         <div class="col-lg-3">
 
-          <div  class="card">
+          <div style="border-radius: 30px;" class="card">
           
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">
@@ -55,6 +55,7 @@
 
 
   </ol>
+  <br>
   <div class="carousel-inner">
   {% if post.get_image %}
     <div class="carousel-item active">
@@ -83,8 +84,8 @@
     <span class="sr-only">Next</span>
   </a>
 </div>
-            <div  class="card-body" style="height: 300px;">
-             <a style="color: black;" href="{% url 'post_list' post.slug %}"> <h4 style="text-align: center;font-family:Georgia, 'Times New Roman', Times, serif"class="card title">{{post.title |safe}}</h4></a>
+          <div  class="card-body" style="height: 300px;background-color:whitesmoke;border-radius:30px">
+          <a style="color: black;" href="{% url 'post_list' post.slug %}"> <h4 class="page-header" style="text-align: center;font-family:Georgia, 'Times New Roman', Times, serif">{{post.title |safe}}</h4></a>
 
            <a style="color: black;" href="#">   <h5 style="text-align: center;font-family:cursive">Yazar:{{post.author|safe}}</h5></a>
            <a style="color: black;" href="#">   <h5 style="text-align: center;font-family:cursive" >Ülke:{{post.content_country|safe}}</h5></a>
