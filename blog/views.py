@@ -49,6 +49,7 @@ def home(request):
 
 def post_list(request,slug):
     posts = get_object_or_404(Post, slug=slug)
+    
     return render(request, 'blog/post_list.html', context={'posts': posts})
 
 

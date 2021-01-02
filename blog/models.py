@@ -15,9 +15,11 @@ from ckeditor.fields import RichTextField
 
 
 def upload_to(instance, filename):
-    uzanti = filename.split('.')[-1]
-    new_name = "%s.%s" % (str(uuid4()), uzanti)
-    unique_id = instance.unique_id
+    for i in filename:
+        print(filename)
+        uzanti = i.split('.')[-1]
+        new_name = "%s.%s" % (str(uuid4()), uzanti)
+        unique_id = instance.unique_id
     return os.path.join('blog', unique_id, new_name)
 
 class Post(models.Model):
@@ -44,7 +46,7 @@ class Post(models.Model):
     image = models.ImageField( default='default/default-photo.jpg', upload_to=upload_to, blank=True,
                               verbose_name='Fotoğraflar',
                               null=True,
-                              help_text='Kapak Fotoğrafı Yükleyiniz')
+                              help_text=' Fotoğraflarınızı Yükleyiniz')
     author = models.CharField(max_length=100,blank=False,null=True,verbose_name="Yazar")
     unique_id = models.CharField(max_length=100, editable=False, null=True)
 
@@ -53,10 +55,10 @@ class Post(models.Model):
         verbose_name_plural = 'Gönderiler'
         ordering = ['-id']
   
-  
+
+
     def get_image(self):
         if self.image:
-            print(self.image.url)
             return self.image.url
         else:
             return '/media/default/default-photo.jpg'
@@ -91,7 +93,6 @@ class Post(models.Model):
                 self.slug = self.get_unique_slug()
         print(self.title)
         super(Post, self).save(*args, **kwargs)
-
 
     
 
