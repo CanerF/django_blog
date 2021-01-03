@@ -1,5 +1,25 @@
-{% extends "base.html" %}
-{% load static %}
+ {% extends 'base.html' %}
+ {% load static %}
+
+
+ {% block header-photo %}
+ <header class="masthead" style="background-image: url('static/boostrap/img/home-bg.jpg')">
+  {% endblock %}
+
+  {% block header-info %}
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="site-heading">
+            <h1>Biz Kimiz?</h1>
+            <span class="subheading">Erasmus veya Diğer Yurtdışı Hikayelerinizi Paylaşabileceğiniz Topluluk</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  {% endblock %}
 
 {% block content %}
 
@@ -12,7 +32,7 @@
   <div class="column-custom">
     <div class="card-profile first-image">
       <img src="{% static 'blog/images/pp1.png' %}" class="profile-image" alt="Profile Picture1">
-      <h1>Hasan</h1>
+      <h2>Hasan</h2>
       <p>&nbsp; ambition is to reach the very top of my profession and to work with other leading developers in this field. On a personal level I am able to both give and take feedback. Furthermore I am committed to constantly improving myself by learning new technologies and frameworks.
       </p>          
     </div>
@@ -20,7 +40,7 @@
   <div class="column-custom">
     <div class="card-profile second-image">
       <img src="{% static 'blog/images/travelling.jpg' %}" class="profile-image" alt="Profile Picture2">
-      <h1 style="text-align: center;">Sena</h1>
+      <h2 style="text-align: center;">Sena</h2>
       <p>&nbsp;My ambition is to reach the very top of my profession and to work with other leading developers in this field. On a personal level I am able to both give and take feedback. Furthermore I am committed to constantly improving myself by learning new technologies and frameworks.
       </p>          
     </div>
@@ -28,7 +48,7 @@
   <div class="column-custom">
     <div class="card-profile third-image">
       <img src="{% static 'blog/images/pp2.jpg' %}" class="profile-image" alt="Profile Picture3">
-      <h1>Caner</h1>
+      <h2>Caner</h2>
       <p>&nbsp;My ambition is to reach the very top of my profession and to work with other leading developers in this field. On a personal level I am able to both give and take feedback. Furthermore I am committed to constantly improving myself by learning new technologies and frameworks.
       </p>          
     </div>

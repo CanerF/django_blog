@@ -1,5 +1,23 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
 {% load static %}
+ {% block header-photo %}
+ <header class="masthead" style="background-image: url('static/boostrap/img/about-bg.jpg')">
+  {% endblock %}
+
+  {% block header-info %}
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <div class="site-heading">
+          <h1>Hikayeni Paylaş Bize Katıl</h1>
+          <span class="subheading">Erasmus veya diğer yurtdışı hikayelerinizi,deneyimlerinizi bizimle paylaşabilirsiniz</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+{% endblock %}
 {% block content%}
 <div style="background-color:whitesmoke;"> 
 

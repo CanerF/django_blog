@@ -1,5 +1,24 @@
 {% extends 'base.html' %}
 {% load static %}
+
+{% block header-photo %}
+ <header class="masthead" style="background-image: url('static/boostrap/img/home-bg.jpg')">
+  {% endblock %}
+{% block header-info %}
+<div class="overlay"></div>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-md-10 mx-auto">
+      <div class="site-heading">
+        <h1>Haydi Hikayeni Yaz!</h1>
+        <span class="subheading">Aşağıdaki Form Üzerinden Hikayeni Yazabilirsin</span>
+      </div>
+    </div>
+  </div>
+</div>
+</header>
+{% endblock %}
+
 {% block content %}
 
     
@@ -12,7 +31,7 @@
                 {% csrf_token %}
  
                 {{ form.media }}
-<div class="form-group " style="background-color:rgba(177, 123, 123, 0.6);">
+<div class="form-group ">
     <center> <h1  style="font-family:cursive;" class="header">SENİN HİKAYEN NE?</h1> </center>
     <br>
      {% for field in form %}
@@ -38,8 +57,8 @@
 </div>    
 {% endfor %}
 
-<div class="col-lg-5">
-    <input type="submit" value="Kaydet" class="btn pull-right  btn-sm btn-success">
+<div class="container" >
+    <input  type="submit" value="Kaydet" class="btn pull-left  btn-sm btn-success">
 </div>
 
 </form>

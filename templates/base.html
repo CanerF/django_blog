@@ -1,73 +1,71 @@
-
 {% load static %}
-
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+<head>
 
-    <link href="https://fonts.googleapis.com/css?family=Raleway:400,500,500i,700,800i" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>ErasmuStory</title>
+  <title>Clean Blog - Start Bootstrap Theme</title>
+ 
+  <!-- Bootstrap core CSS -->
+  <link href="{% static 'boostrap/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
 
-    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/starter-template/">
-    
+  <!-- Custom fonts for this template -->
+  <link href="{% static 'boostrap/vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
 
-    <link href="{% static 'blog/main.css' %}" type="text/css" rel="stylesheet">
+  <!-- Custom styles for this template -->
+  <link href="{% static 'boostrap/css/clean-blog.min.css' %}" rel="stylesheet">
+ <!-- Bootstrap core JavaScript -->
+ <script src="{% static 'boostrap/vendor/jquery/jquery.min.js' %}"></script>
+ <script src="{% static 'boostrap/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
 
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+ <!-- Custom scripts for this template -->
+ <script src=" {% static  'boostrap/js/clean-blog.min.js' %}"></script>
 
-   
-  </head>
-  <body >
+</head>
 
+<body>
 
-    <header>
-      <!--- Navbar --->
-      <nav class="navbar navbar-expand-lg" style="background-color: black;">
-       <h4  style="color: white;font-family:Bradley Hand, cursive;font-size:24px"> <a  class="navbar-brand text-white" style="font-family:Bradley Hand, cursive;font-size:24px"  href="{% url 'blog-home' %}"><i class="fad fa-globe-europe"></i></a>Erasmu<a style="color:white;font-family:Brush Script MT, Brush Script Std, cursive;font-size:42px">S</a>tory</h4>
-        <div class="container">
-          
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nvbCollapse" aria-controls="nvbCollapse">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          
-            <ul class="navbar-nav ml-left">
-                <li class="nav-item pl-1">
-                  <a class="nav-link" href="{% url 'blog-home' %}"><i class="fa fa-home fa-fw mr-1"></i>Hikayeler</a>
-                </li>
-         
-            
-                <li class="nav-item pl-1">
-                  <a class="nav-link" href="about"><i class="fa fa-info-circle fa-fw mr-1"></i>Hakkımızda</a>
-                </li>
-            </ul>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand" style="font-family: cursive;font-size:32px;" href="{% url 'blog-home' %}">ErasmuStory</a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        Menu
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'blog-home' %}">Anasayfa</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'blog-about' %}">Hakkımızda</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'post_create' %}" ><i class="fa fa-plus fa-fw mr-1"></i>Hikayeni Yaz</a>
+          </li>
+          <!-- <li class="nav-item">
+            <a class="nav-link" href="contact.html">İletişim</a>
+          </li> -->
+        </ul>
+      </div>
+    </div>
+  </nav>
 
-            <ul class="navbar-nav ml-auto">
+  <!-- Page Header -->
+  {% block header-photo %}
+  {% endblock %}
+  {% block header-info %}
+  
+  {% endblock %}
 
-              {% comment %} <li class="nav-item pl-1">
-                <a class="nav-link" href="#"><i class="fa fa-phone fa-fw fa-rotate-180 mr-1"></i>İletişim</a>
-              </li> {% endcomment %}
-              <li class="nav-item pl-1">
-                <a class="nav-link" href="{% url 'post_create' %}"><i class="fa fa-user-plus fa-fw mr-1"></i>Hikayeni Yaz</a>
-              </li>
-              <li class="nav-item pl-1">
-                <a class="nav-link" href="#"><i class="fa fa-sign-in fa-fw mr-1"></i>Topluluğa Katıl</a>
-              </li>
-            </ul>
-          
-        </div>
-      </nav>
-    </header>
-      <!--# Navbar #-->
     
 
 
@@ -77,56 +75,46 @@
 
    
   <!--- Footer --->
-  <div class="col-lg-12">
-
-    <footer>
-      <div class="jumbotron jumbotron-fluid bg-secondary p-4 mt-5 mb-0">
-        <div class="container">
-          <div class="row" >
-            <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4 cizgi">
-              <div class="card bg-secondary border-0">
-                <div class="card-body text-light text-center">
-                  <h5 class="card-title text-white display-4" style="font-size:30px"></h5>
-                <p class="d-inline lead">Tüm Hakları Saklıdır © 2020<br>
-                <a href="#" class="text-light d-block lead"></a>
-                </p>
-    
-                </div>
-              </div>
-            </div>
-            
-            <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 cizgi">
-              <div class="card bg-secondary border-0">
-                <div class="card-body text-center">
-                  <h5 class="card-title text-white display-4" style="font-size:30px">İletişim</h5>
-                  <a class="text-light d-block lead" style="margin-left: -20px" href="#"><i class="fa fa-phone mr-2"></i>+90 (000) 000 0 000</a>
-                  <a class="text-light d-block lead" href="#"><i class="fa fa-envelope mr-2"></i>admin@localhost.com</a>
-                </div>
-              </div>
-            </div>
-            
-            <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
-              <div class="card bg-secondary border-0">
-                <div class="card-body text-center">
-                <h5 class="card-title text-white display-4" style="font-size:30px">Sosyal Medya</h5>
-            
-                    <a class="text-light" href="#"><i class="fa fa-facebook-square fa-fw fa-2x"></i></a>
-                  
-                    <a class="text-light" href="#"><i class="fa fa-twitter-square fa-fw fa-2x"></i></a>
-                  
-                    <a class="text-light" href="#"><i class="fa fa-instagram fa-fw fa-2x"></i></a>
-                  
-                    <a class="text-light" href="#"><i class="fa fa-linkedin fa-fw fa-2x"></i></a>
-                  
-                </div>
-              </div>
-            </div>	
-          </div>
+  
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <ul class="list-inline text-center">
+            <li class="list-inline-item">
+              <a href="#">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="#">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="#">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          </ul>
+          <p class="copyright text-muted">Copyright &copy; Your Website 2020</p>
         </div>
       </div>
-    </footer>
+    </div>
+  </footer>
+
+ 
     <!--# Footer #-->
-  </div>
 
   </body>
 </html>

@@ -13,7 +13,7 @@ urlpatterns = [
        
     url(r'^$',views.home, name='blog-home'),
 
-    url('about/', views.about, name='blog-about')
+    url(r'^about/$', views.about, name='blog-about')
 
 
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
