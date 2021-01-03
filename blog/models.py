@@ -15,7 +15,7 @@ from ckeditor.fields import RichTextField
 
 
 def upload_to(instance, filename):
-    uzanti = i.split('.')[-1]
+    uzanti = filename.split('.')[-1]
     new_name = "%s.%s" % (str(uuid4()), uzanti)
     unique_id = instance.unique_id
     return os.path.join('blog', unique_id, new_name)
