@@ -9,6 +9,7 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.urls import reverse_lazy
 from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
+from django.forms import modelformset_factory
 
 from django.template.loader import render_to_string
 from .forms import BlogForm
@@ -30,12 +31,15 @@ posts = [
 ]
 
 def post_create(request):
+   
     form = BlogForm()
+    
     if request.method == "POST":
         form = BlogForm(data=request.POST, files=request.FILES)
         if form.is_valid():
             blog = form.save(commit=False)
             blog.save()
+            
             msg = "Tebrikler <strong> %s </strong> isimli gönderiniz başarıyla oluşturuldu." % (blog.title)
             messages.success(request, msg, extra_tags='success')
             # everse('post-detail', kwargs={'pk': blog.pk})
