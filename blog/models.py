@@ -15,6 +15,7 @@ from ckeditor.fields import RichTextField
 
 
 def upload_to(instance, filename):
+
     uzanti = filename.split('.')[-1]
     new_name = "%s.%s" % (str(uuid4()), uzanti)
     unique_id = instance.unique_id
@@ -41,10 +42,26 @@ class Post(models.Model):
     slug = models.SlugField(null=True, unique=True, editable=False)
 
     date_posted = models.DateField(default=timezone.now)
-    image = models.ImageField( default='default/default-photo.jpg', upload_to=upload_to, blank=True,
+    image = models.ImageField( default='default/default-photo.jpg', upload_to=upload_to, blank=False,
                               verbose_name='Fotoğraflar',
                               null=True,
-                              help_text=' Fotoğraflarınızı Yükleyiniz')
+                              help_text=' Fotoğraf Yükleyiniz')
+    image_2 = models.ImageField( default='default/default-photo.jpg', upload_to=upload_to, blank=True,
+                              verbose_name='',
+                              null=True,
+                              help_text=' Fotoğraf Yükleyiniz')
+    image_3 = models.ImageField( default='default/default-photo.jpg', upload_to=upload_to, blank=True,
+                              verbose_name='',
+                              null=True,
+                              help_text=' Fotoğraf Yükleyiniz')
+    image_4 = models.ImageField( default='default/default-photo.jpg', upload_to=upload_to, blank=True,
+                              verbose_name='',
+                              null=True,
+                              help_text=' Fotoğraf Yükleyiniz')
+    image_5 = models.ImageField( default='default/default-photo.jpg', upload_to=upload_to, blank=True,
+                              verbose_name='',
+                              null=True,
+                              help_text=' Fotoğraf Yükleyiniz')                                                                                                        
     author = models.CharField(max_length=100,blank=False,null=True,verbose_name="Yazar")
     unique_id = models.CharField(max_length=100, editable=False, null=True)
 
