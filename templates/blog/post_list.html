@@ -19,13 +19,16 @@
 </header>
 {% endblock %}
 {% block content%}
-<div style="background-color:whitesmoke;"> 
 
-<div class="col-lg-4"  >
+<div class="container"  >
 
 <div class="form-group" >
-    <h4 style="text-align: center;font-family:cursive">{{posts.title}}</h4>
+    <h1 style="text-align: center;font-family:cursive">{{posts.title}}</h1>
     <h5 style="text-align: center;font-family:cursive">Yazar:{{posts.author}}</h5>
+    <h5 style="text-align: center;font-family:cursive">Ülke:{{posts.content_country}}</h5>
+    <h5 style="text-align: center;font-family:cursive">Şehir:{{posts.content_city}}</h5>
+
+
 
 </div>
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -40,26 +43,26 @@
 
     </ol>
     <br>
+   <div class="row"> 
     <div class="carousel-inner">
     {% if posts.get_image %}
       <div class="carousel-item active">
-        <img class="d-block w-100" src="{{ posts.image.url }}" alt="First slide">
+     <img  class="d-block w-100 " src="{{ posts.image.url }}" alt="First slide">
       </div>
       <div class="carousel-item">
-        <img class="d-block w-100" src="{{ posts.image_2.url }}" alt="Second slide">
+         <img class="d-block w-100 " src="{{ posts.image_2.url }}" alt="Second slide">
       </div>
       <div class="carousel-item">
         <img class="d-block w-100" src="{{ posts.image_3.url }}" alt="Third slide">
       </div>
       <div class="carousel-item">
-        <img class="d-block w-100" src="{{ posts.image_4.url }}" alt="Four slide">
+        <img class="d-block w-100 " src="{{ posts.image_4.url }}" alt="Four slide">
       </div>
       <div class="carousel-item">
-        <img class="d-block w-100" src="{{ posts.image_5.url }}" alt="Five slide">
+        <img class="d-block w-100 " src="{{ posts.image_5.url }}" alt="Five slide">
       </div>
       {% endif %}
-
-
+  </div>
     </div>
     <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -71,6 +74,50 @@
     </a>
   </div>
 </div>
+ 
+
+ <!-- Post Content -->
+  <article>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <h2 class="section-heading">Eğitim Ve Okul Hayatı</h2>
+
+          <p>{{posts.content_education |safe }}</p>
+
+          <h2 class="section-heading">Harcamalar</h2>
+
+          <p>{{posts.content_cost |safe }}</p>
+          <h2 class="section-heading">Yemek</h2>
+
+          <p>{{posts.content_food |safe }}</p>
+          <h2 class="section-heading">Eğlence</h2>
+
+          <p>{{posts.content_fun |safe }}</p>
+          <h2 class="section-heading">Ulaşım</h2>
+
+          <p>{{posts.content_transportation |safe }}</p>
+          <h2 class="section-heading">Gezilecek Yerler</h2>
+
+          <p>{{posts.content_visit |safe }}</p>
+          <h2 class="section-heading">Gezilen Diğer Şehirler</h2>
+
+          <p>{{posts.content_cities |safe }}</p>
+          <h2 class="section-heading">İpuçları</h2>
+
+          <p>{{posts.content_hint |safe }}</p>
+        
+
+         
+            <a href="http://spaceipsum.com/">Space Ipsum</a>. Photographs by
+            <a href="https://www.flickr.com/photos/nasacommons/">NASA on The Commons</a>.</p>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <hr>
+
 {% endblock%}
 
 </div>
