@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
  {% block header-photo %}
- <header class="masthead" style="background-image: url('static/boostrap/img/about-bg.jpg')">
+ <header class="masthead" style="background-image: url('/static/boostrap/img/about-bg.jpg')">
   {% endblock %}
 
   {% block header-info %}
@@ -10,8 +10,8 @@
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
         <div class="site-heading">
-          <h1>Hikayeni Paylaş Bize Katıl</h1>
-          <span class="subheading">Erasmus veya diğer yurtdışı hikayelerinizi,deneyimlerinizi bizimle paylaşabilirsiniz</span>
+          
+          
         </div>
       </div>
     </div>
@@ -23,11 +23,13 @@
 <div class="container"  >
 
 <div class="form-group" >
-    <h1 style="text-align: center;font-family:cursive">{{posts.title}}</h1>
-    <h5 style="text-align: center;font-family:cursive">Yazar:{{posts.author}}</h5>
-    <h5 style="text-align: center;font-family:cursive">Ülke:{{posts.content_country}}</h5>
-    <h5 style="text-align: center;font-family:cursive">Şehir:{{posts.content_city}}</h5>
+  <article>
+    <h1 class="section-heading" style="text-align: center;font-family:cursive">{{posts.title}}</h1>
+    <h5 class="section-heading" style="text-align: center;font-family:cursive">Yazar:{{posts.author}}</h5>
+    <h5 class="section-heading" style="text-align: center;font-family:cursive">Ülke:{{posts.content_country}}</h5>
+    <h5 class="section-heading" style="text-align: center;font-family:cursive">Şehir:{{posts.content_city}}</h5>
 
+    <article>
 
 
 </div>
@@ -64,11 +66,11 @@
       {% endif %}
   </div>
     </div>
-    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <a class="carousel-control-prev" href="#carouselExampleIndicators"data-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
       <span class="sr-only">Previous</span>
     </a>
-    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <a class="carousel-control-next" href="#carouselExampleIndicators" data-slide="next">
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
       <span class="sr-only">Next</span>
     </a>
