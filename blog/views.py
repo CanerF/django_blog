@@ -14,6 +14,9 @@ from django.forms import modelformset_factory
 from django.template.loader import render_to_string
 from .forms import BlogForm
 from .models import Post
+import requests
+import pandas as pd
+
 
 posts = [
     {
@@ -60,3 +63,15 @@ def post_list(request,slug):
 def about(request):
     return render(request, 'blog/about.html', {'title' : 'About'})
 
+def erasmus_hakkında():
+    url = "https://booking-com.p.rapidapi.com/v1/metadata/exchange-rates"
+    querystring = {"currency":"AED","locale":"en-gb"}
+    headers = {
+    'x-rapidapi-host': "booking-com.p.rapidapi.com",
+    'x-rapidapi-key': "4e5ef9c4cemsh3d46c9a60de2339p1de20bjsn3e0d543e2091"}
+    response = requests.request("GET", url, headers=headers, params=querystring)
+    response=pd.DataFrame(response)
+    return print(response.head())
+
+
+print(erasmus_hakkında())

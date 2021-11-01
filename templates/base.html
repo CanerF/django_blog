@@ -28,6 +28,8 @@
  <!-- Custom scripts for this template -->
  <script src=" {% static  'boostrap/js/clean-blog.min.js' %}"></script>
 
+ 
+
 </head>
 
 <body>
@@ -46,11 +48,15 @@
             <a class="nav-link" href="{% url 'blog-home' %}">Anasayfa</a>
           </li>
           <li class="nav-item">
+            <a class="nav-link" href="#">Erasmus Hakkında</a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" href="{% url 'blog-about' %}">Hakkımızda</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{% url 'post_create' %}" ><i class="fa fa-plus fa-fw mr-1"></i>Hikayeni Yaz</a>
           </li>
+          
           <!-- <li class="nav-item">
             <a class="nav-link" href="contact.html">İletişim</a>
           </li> -->
